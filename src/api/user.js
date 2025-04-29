@@ -1,7 +1,7 @@
 import axios from "axios"
 import { getToken } from "./auth"
 
-const API_URL = "http://localhost:8800/api"
+const API_URL = process.env.REACT_APP_API_URL
 
 const authAxios = axios.create({
   baseURL: API_URL,
