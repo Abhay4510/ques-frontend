@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { signup } from "../../api/auth"
 import { useAuth } from "../../context/AuthContext"
 import { Logo } from "../../assets/logo"
+import { QuesLogo } from "../../assets/QuesLogo"
 import LoginBackground from "../../components/layout/LoginBackground"
 
 export const Signup = () => {
@@ -21,7 +22,7 @@ export const Signup = () => {
     try {
       await signup(email, password)
       setIsLoggedIn(true)
-      navigate("/projects")
+      navigate("/create-project")
     } catch (err) {
       setError(err instanceof Error ? err.message : "Signup failed")
     } finally {
@@ -31,29 +32,40 @@ export const Signup = () => {
 
   return (
     <div className="flex min-h-screen">
-      <div className="hidden md:flex md:w-1/2 relative overflow-hidden">
+      {/* Left side with background */}
+      <div className="hidden md:flex md:w-[65%] relative overflow-hidden">
         <LoginBackground />
         <div className="relative z-10 p-12 flex flex-col justify-center h-full">
-          <div className="text-white mb-8">
+          <div className="text-white mb-8 w-32">
             <Logo />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">Your podcast will no longer be just a hobby.</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">
+            Your podcast<br />
+            will no longer<br />
+            be just a hobby.
+          </h1>
           <p className="text-white text-lg mb-6">Supercharge Your Distribution using our AI assistant!</p>
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center p-8">
+      {/* Right side with form */}
+      <div className="w-full md:w-[35%] flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
+            <div className="flex justify-center mb-4">
+              <div className="w-12 h-12">
+                <QuesLogo />
+              </div>
+            </div>
             <h2 className="text-2xl font-bold text-gray-900">
-              Welcome to <span className="text-purple-600">Ques.AI</span>
+              Welcome to <span className="text-[#7E22CE]">Ques.AI</span>
             </h2>
             <p className="mt-2 text-sm text-gray-600">Create an account to get started</p>
           </div>
 
           {error && <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">{error}</div>}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                 Email Address
@@ -64,7 +76,7 @@ export const Signup = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7E22CE]"
                 placeholder="Enter your email"
               />
             </div>
@@ -79,7 +91,7 @@ export const Signup = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7E22CE]"
                 placeholder="Create a password"
               />
             </div>
@@ -88,20 +100,20 @@ export const Signup = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#7E22CE] hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7E22CE] disabled:opacity-50"
               >
                 {loading ? "Creating account..." : "Create Account"}
               </button>
             </div>
 
-            <div className="text-center">
+            <div className="text-center py-2">
               <p className="text-sm text-gray-600">or</p>
             </div>
 
             <div>
               <button
                 type="button"
-                className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                className="w-full flex justify-center items-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7E22CE]"
               >
                 <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
                   <path
@@ -129,7 +141,7 @@ export const Signup = () => {
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{" "}
-              <Link to="/" className="text-purple-600 hover:text-purple-500">
+              <Link to="/" className="text-[#7E22CE] hover:text-purple-500">
                 Login
               </Link>
             </p>
