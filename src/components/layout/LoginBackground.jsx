@@ -1,6 +1,6 @@
 const LoginBackground = () => {
   return (
-    <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-purple-400 overflow-hidden">
+    <div className="absolute inset-0 bg-gradient-to-br from-[#7E22CE] to-[#6B21A8] overflow-hidden">
       <svg
         width="100%"
         height="100%"
@@ -27,7 +27,7 @@ const LoginBackground = () => {
           />
         </mask>
         <g mask="url(#mask0_6_2718)">
-        <g style={{ mixBlendMode: "luminosity" }}>
+        <g style={{ mixBlendMode: "luminosity", opacity: 0.8 }}>
             <path
               style={{ mixblendmode: "color-dodge" }}
               opacity="0.32"
