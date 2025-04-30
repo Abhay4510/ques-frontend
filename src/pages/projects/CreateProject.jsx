@@ -36,7 +36,7 @@ export const CreateProject = () => {
       const response = await createProject(projectName)
       setLoading(false)
       setShowModal(false)
-      navigate(`/projects/${response.data._id}`)
+      navigate(`/projects}`)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to create project")
       setLoading(false)
