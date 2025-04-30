@@ -28,12 +28,12 @@ export const Sidebar = ({ username = "Username", email = "username@gmail.com" })
     >
       <button
         onClick={toggleSidebar}
-        className="absolute -right-3 top-12 bg-white border border-gray-200 rounded-full p-1 shadow-sm z-10"
+        className="absolute -right-3 top-80 bg-purple-600 border border-purple-700 rounded-full p-1 shadow-sm z-10"
       >
         {collapsed ? (
-          <ChevronRight className="w-4 h-4 text-gray-500" />
+          <ChevronRight className="w-4 h-4 text-white" />
         ) : (
-          <ChevronLeft className="w-4 h-4 text-gray-500" />
+          <ChevronLeft className="w-4 h-4 text-white" />
         )}
       </button>
       <div className="p-4">

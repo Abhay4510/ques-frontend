@@ -68,9 +68,9 @@ export const AccountSettings = () => {
             <div className="flex items-center mb-6">
               <Link to="/projects" className="flex items-center text-gray-600 hover:text-gray-900">
                 <ArrowLeft className="w-5 h-5 mr-2" />
-                Back
+                <span>Back</span>
               </Link>
-              <h1 className="text-2xl font-bold text-purple-700 ml-4">Account Settings</h1>
+              <h1 className="text-2xl font-semibold text-gray-800 ml-4">Account Settings</h1>
             </div>
 
             {fetchLoading ? (
@@ -78,7 +78,7 @@ export const AccountSettings = () => {
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-purple-500"></div>
               </div>
             ) : (
-              <div className="bg-white rounded-lg shadow-sm p-6">
+              <div className="bg-white rounded-lg shadow p-6">
                 {success && (
                   <div className="mb-6 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
                     Account settings updated successfully!
@@ -87,44 +87,45 @@ export const AccountSettings = () => {
 
                 {error && <div className="mb-6 p-3 bg-red-100 border border-red-400 text-red-700 rounded">{error}</div>}
 
-                <div className="flex flex-col md:flex-row items-start gap-6 mb-6">
-                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl font-semibold">
-                    {username ? username.charAt(0).toUpperCase() : email.charAt(0).toUpperCase()}
-                  </div>
-
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-1">Profile Information</h3>
-                    <p className="text-gray-500 text-sm mb-4">
-                      Update your account's profile information and email address.
-                    </p>
-
-                    <form onSubmit={handleSubmit} className="space-y-6">
-                      <div>
-                        <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
-                          Username
-                        </label>
-                        <input
-                          type="text"
-                          id="username"
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                          placeholder="Enter your username"
-                        />
+                <div className="flex mb-8">
+                  <div className="mr-6">
+                    <div className="w-24 h-24 rounded-full overflow-hidden bg-purple-100 flex items-center justify-center">
+                      <div className="text-3xl font-semibold text-purple-600">
+                        {username ? username.charAt(0).toUpperCase() : email.charAt(0).toUpperCase()}
                       </div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex-1">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="flex-1">
+                          <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+                            User Name
+                          </label>
+                          <input
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            placeholder="Enter your username"
+                          />
+                        </div>
 
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          value={email}
-                          disabled
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed"
-                        />
-                        <p className="mt-1 text-sm text-gray-500">Email cannot be changed</p>
+                        <div className="flex-1">
+                          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            disabled
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 cursor-not-allowed"
+                          />
+                          <p className="mt-1 text-xs text-gray-500">Email cannot be changed</p>
+                        </div>
                       </div>
 
                       <div>
@@ -140,14 +141,16 @@ export const AccountSettings = () => {
                   </div>
                 </div>
 
-                <div className="mt-8 border-t border-gray-200 pt-6">
-                  <h3 className="text-lg font-semibold mb-1">Subscriptions</h3>
-                  <p className="text-gray-500 text-sm mb-4">Manage your subscription plan.</p>
-
-                  <div className="bg-purple-50 border border-purple-200 rounded-md p-4 text-purple-700">
-                    <p className="text-sm">
+                <div className="mt-8 pt-6">
+                  <h3 className="text-lg font-semibold mb-4">Subscriptions</h3>
+                  
+                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 flex justify-between items-center">
+                    <p className="text-purple-700">
                       Oops! You don't have any active plans. <span className="font-medium">Upgrade now!</span>
                     </p>
+                    <button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md text-sm">
+                      Upgrade
+                    </button>
                   </div>
                 </div>
               </div>

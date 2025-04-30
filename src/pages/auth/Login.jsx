@@ -36,18 +36,23 @@ export const Login = () => {
       {/* Left side with background */}
       <div className="hidden md:flex md:w-[65%] relative overflow-hidden">
         <LoginBackground />
-        <div className="relative z-10 p-12 flex flex-col justify-center h-full">
-          <div className="text-white mb-8 w-32">
+        <div className="relative z-10 p-12 flex flex-col h-full">
+          <div className="text-white mt-8 w-32">
             <Logo />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: 'Circular Std, sans-serif', fontWeight: 100, fontSize: '70px', lineHeight: '100%', letterSpacing: '0%' }}>
-            Your podcast<br />
-            will no longer<br />
-            be just a hobby.
-          </h1>
-          <p className="text-white text-lg mb-6" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 200, fontSize: '25px', lineHeight: '130%', letterSpacing: '0%' }}>
-            Supercharge Your Distribution using our AI assistant!
-          </p>
+          
+          <div className="mt-16">
+            <h1 className="text-4xl font-bold text-white mb-6" style={{ fontFamily: 'Circular Std, sans-serif', fontWeight: 100, fontSize: '70px', lineHeight: '100%', letterSpacing: '0%' }}>
+              Your podcast<br />
+              will no longer<br />
+              be just a hobby.
+            </h1>
+            <p className="text-white text-lg" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 200, fontSize: '25px', lineHeight: '130%', letterSpacing: '0%' }}>
+              Supercharge Your Distribution<br />
+              using our AI assistant!
+            </p>
+          </div>
+          <div className="flex-grow"></div>
         </div>
       </div>
 
